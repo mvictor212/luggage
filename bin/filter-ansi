@@ -1,0 +1,3 @@
+#!/bin/sh
+if [ "`uname`" = "Darwin" ]; then sed_regexp="-E"; else sed_regexp="-r"; fi 
+sed $sed_regexp 's/[[:cntrl:]]\[[^m]+m//g' $*

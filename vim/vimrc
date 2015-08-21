@@ -1,0 +1,103 @@
+" pathogen
+call pathogen#infect()
+
+syntax on
+syntax enable
+au Filetype html,xml,xsl source ~/.vim/src/closetag/scripts/closetag.vim
+
+set t_Co=16
+
+
+colorscheme cslate
+
+set ignorecase
+set number
+set expandtab
+set tabstop=2
+set lbr
+set autoindent
+set incsearch
+set shiftwidth=2
+set display=lastline
+set ww=bshl<>~[]
+set backspace=indent,eol,start
+filetype plugin indent on
+
+" Key remapping
+inoremap <C-o> <C-\><C-o>
+map <Leader>wso :w<CR>:so %<CR>
+vmap <Leader>/ y:execute "/".escape(@",'[]/\.*')<CR>
+vmap <Leader>? y:execute "?".escape(@",'[]/\.*')<CR>
+map <Leader>syn :call SyntaxAttr()<CR>
+map <Leader>rc :execute ":.,$s/".escape(@-,'[]/\.*')."/".escape(@.,'[]/\.*')."/c"<CR>
+vmap <Leader>sr "ry<esc>:execute ":.,$s/".escape(@s,'[]/\.*')."/".escape(@r,'[]/\.*')."/c"<CR>
+map <Leader>sr :execute ":.,$s/".escape(@s,'[]/\.*')."/".escape(@r,'[]/\.*')."/c"<CR>
+
+
+map <Leader>ga :execute ":VCSAdd"<CR>
+map <Leader>gc :execute ":VCSCommit"<CR>
+map <Leader>gd :execute ":VCSDiff"<CR>
+map <Leader>gp :execute ":!cd `dirname %` && git push"<CR>
+map <Leader>cddn :execute ":cd `dirname %`"<CR>
+
+" swap items
+vnoremap <C-X> <Esc>`.``gvP``P
+
+" Taglist / code browsing commands
+map <Leader>tl :TlistToggle<CR>
+map <Leader>th :TlistHighlight<CR>
+map <Leader>td :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>tf :!ctags %<CR>
+
+" Commands
+command! -nargs=0 Spell setlocal spell spelllang=en_us
+command! -nargs=0 ComoSeEscribe setlocal spell spelllang=es
+command! -nargs=0 ISODate r!date +"\%Y-\%m-\%d"
+command! -nargs=0 Date r!date +"\%B \%d, \%Y"
+command! -nargs=0 DateTime r!date +"\%B \%d, \%Y \%k:\%M \%p"
+
+" grep.vim
+let Grep_Find_Use_Xargs = 0
+let Grep_Skip_Dirs = '.git .svn'
+
+" FuzzyFinder
+let g:fuf_modesDisable = [ 'mrucmd' ]
+
+noremap  <Leader>ff :FufFile<CR><ESC>
+noremap  <Leader>fb :FufBuffer<CR><ESC>
+noremap  <Leader>fm :FufMruFile<CR><ESC>
+noremap  <Leader>fc :FufMruCmd<CR><ESC>
+noremap  <Leader>fd :FufDir<CR><ESC>
+noremap  <Leader>ft :FufTag<CR><ESC>
+
+set backupskip=/tmp/*,/private/tmp/*"
+
+let g:dbext_default_profile_default="type=MYSQL:user=root:passwd="
+let g:dbext_default_profile="default"
+let g:dbext_suppress_version_warning = 1
+
+" wordnet
+let g:wordnet_path = "/usr/local/WordNet-3.0/bin/"
+
+""" Berton's tricks
+" escape with jj
+imap jj <Esc>
+
+" turn off highlighting after search with backspace
+nmap <BS> :noh<CR>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" yanking and deleting add to the clipboard
+set clipboard=unnamed
+
+" rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Powerline
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set laststatus=2

@@ -1,0 +1,39 @@
+[alias]
+	co = checkout
+	b = branch
+[branch]
+	autosetupmerge = true
+[user]
+	email = mason.victors@gmail.com
+	name = Mason Victors
+[gui]
+	matchtrackingbranch = true
+	pruneduringfetch = true
+	fontui = -family Tahoma -size 13 -weight normal -slant roman -underline 0 -overstrike 0
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+[sendemail]
+	smtpserver = /opt/local/bin/msmtp
+[log]
+[git-tmbundle "log"]
+	context-lines = 10
+[apply]
+  whitespace = nowarn
+[push]
+  default = current
+[mergetool]
+	keepBackup = false
+[mergetool "diffmerge"]
+	cmd = diffmerge --merge --result="$MERGED" "$LOCAL" "$BASE" "$REMOTE"
+	trustExitCode = false
+[merge]
+	tool = diffmerge
+[alias]
+    fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    fi = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    ri = rebase --interactive --autosquash
+[credential]
+	helper = osxkeychain

@@ -1,0 +1,18 @@
+#!/bin/sh
+osascript -e 'tell application "Emacs" to activate'
+until [ -z "$1" ]; do
+  filename="$1"
+  if (echo $filename | grep : > /dev/null); then
+    linenumber="+"${filename#*:}
+    filename=${filename%:*}
+  else
+    linenumber=""
+  fi
+
+  until ( /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n $linenumber "$filename" 2> /dev/null ); do
+    printf .
+    sleep 1
+  done
+  shift
+done
+echo

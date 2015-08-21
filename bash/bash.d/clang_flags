@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# these flags are set because
+# 1) some python packages build with unrecognized flags like -mno-fused-madd, and
+# 2) the latest clang version treats the subsequent warning as an error
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
