@@ -5,14 +5,7 @@ for f in "$HOME"/.bash.d/*; do
   [ -r "$f" ] && . "$f"
 done
 
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-[ -f ~/.cider.profile ] && source ~/.cider.profile
-
 source /usr/local/bin/virtualenvwrapper.sh
 
-alias ipn='ipython notebook --profile=data'
-
-export SPARK_HOME=/opt/spark/spark-1.4.1
 export IPYTHON=1
-export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.8.2.1-src.zip:$SPARK_HOME/python:$PYTHONPATH
-export PATH=$PATH:/usr/local/sbin:/bin:/usr/bin/java:/usr/local/bin:/opt/local/bin:/opt/local/sbin:$SPARK_HOME/bin
+export PATH=$PATH:/usr/local/sbin:/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin

@@ -5,7 +5,7 @@
 	autosetupmerge = true
 [user]
 	email = mason.victors@gmail.com
-	name = Mason Victors
+	name = mvictor212
 [gui]
 	matchtrackingbranch = true
 	pruneduringfetch = true
@@ -37,3 +37,10 @@
     ri = rebase --interactive --autosquash
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = trunk
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

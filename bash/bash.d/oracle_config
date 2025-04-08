@@ -1,6 +1,0 @@
-#!/bin/bash
-
-export ORACLE_BASE=/usr/local/opt/oracle
-export ORACLE_HOME=$ORACLE_BASE/instantclient_11_2
-export PATH=$ORACLE_HOME:$PATH
-export DYLD_LIBRARY_PATH=$ORACLE_HOME

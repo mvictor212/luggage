@@ -1,5 +1,0 @@
-#!/bin/bash
-API_KEY=9c557cc903481fdfa5b113474f7835d37f44932e
-SUBDOMAIN=redbrainlabs
-ROOM_ID=502065
-curl -u $API_KEY:X https://$SUBDOMAIN.campfirenow.com/room/$ROOM_ID/uploads.json -F upload=@$1

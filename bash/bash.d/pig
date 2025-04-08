@@ -1,5 +1,0 @@
-export PIG_HOME=/usr/local/pig
-export PATH=$PATH:$PIG_HOME/bin
-export JAVA_HOME=/usr/java/default
-export HADOOP_CONF_DIR=/etc/hadoop/
-export PIG_CLASSPATH=$HADOOP_CONF_DIR

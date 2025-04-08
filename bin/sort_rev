@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-def version_array(str); str.split(".").map { |part| part.to_i }; end
-
-puts STDIN.read.strip.split("\n").sort { |a,b| version_array(a) <=> version_array(b) } * "\n"
-
